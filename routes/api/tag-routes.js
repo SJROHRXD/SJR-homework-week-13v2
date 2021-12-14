@@ -3,7 +3,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // The `/api/tags` endpoint
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const tagData = await Tag.findAll({
       include: {
@@ -17,13 +17,13 @@ router.get("/", async (req, res) => {
 });
 
 // get one tag  🧁🧁✨✨🌻🌻
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product }],
     });
     if (!tagData) {
-      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤" });
       return;
     }
     res.status(200).json(tagData);
@@ -62,7 +62,7 @@ router.put('/:id', (req, res) => {
       }
     );
     if (!tagData[0]) {
-      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤" });
       return;
     }
     res.status(200).json(tagData);
@@ -83,7 +83,7 @@ router.delete('/:id', async (req, res) => {
       },
     })
     if (!tagData) {
-      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤" });
     return;
     }
     res.status(200).json(tagData);
