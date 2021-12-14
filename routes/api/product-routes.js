@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// get one product
+// get one product  🧁🧁✨✨🌻🌻
 router.get('/:id', async (req, res) => {
   try {
     const productData = await Product.findByPk(req.params.id, {
@@ -32,7 +32,6 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new product 🧁🧁✨✨🌻🌻
-// scroll to create delete route
 router.post('/', (req, res) => {
   /* req.body should look like this...
     {
@@ -64,9 +63,8 @@ router.post('/', (req, res) => {
     });
 });
 
-// update product
+// update product  🧁🧁✨✨🌻🌻
 router.put('/:id', (req, res) => {
-  // update product data
   Product.update(req.body, {
     where: {
       id: req.params.id,
@@ -106,6 +104,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// delete product  🧁🧁✨✨🌻🌻
 router.delete('/:id', async (req, res) => {
   try {
     // get product and destroy by id
@@ -117,7 +116,7 @@ router.delete('/:id', async (req, res) => {
       },
     })
     if (!productData) {
-      res.status(404).json({message: "NO PRODUCT WITH THIS ID!!!"} )
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
     return;
     }
     res.status(200).json(productData);

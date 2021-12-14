@@ -16,13 +16,14 @@ router.get("/", async (req, res) => {
   }
 });
 
+// get one tag  🧁🧁✨✨🌻🌻
 router.get("/:id", async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
       include: [{ model: Product }],
     });
     if (!tagData) {
-      res.status(404).json({ message: "Nothing found with this id." });
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
       return;
     }
     res.status(200).json(tagData);
@@ -31,14 +32,46 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// create new tag  🧁🧁✨✨🌻🌻
 router.post('/', (req, res) => {
-  // create a new tag
+  try {
+    const tagData = await Tag.create({
+      tag_name: req.body.tag_name,
+    });
+    if (!tagData) {
+      res.status(404).json({ message: "NAME THIS TAG PLZ ⚡" });
+      return;
+    }
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
+// update tag  🧁🧁✨✨🌻🌻
 router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+  try {
+    const tagData = await Tag.update(
+      {
+        tag_name: req.body.tag_name,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (!tagData[0]) {
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      return;
+    }
+    res.status(200).json(tagData);
+  } catch (err) {
+    res.status(500).json;
+  }
 });
 
+// delete tag  🧁🧁✨✨🌻🌻
 router.delete('/:id', async (req, res) => {
   try {
     // get product and destroy by id
@@ -50,7 +83,7 @@ router.delete('/:id', async (req, res) => {
       },
     })
     if (!tagData) {
-      res.status(404).json({message: "NO TAG WITH THIS ID!!!"} )
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
     return;
     }
     res.status(200).json(tagData);

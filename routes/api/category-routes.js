@@ -5,7 +5,7 @@ const { findByPk } = require('../../models/Product');
 // The `/api/categories` endpoint
 // http://localhost:3001/api/categories
 
-  // find all categories
+  // find all categories  🧁🧁✨✨🌻🌻
   // be sure to include its associated Products
 router.get('/', async (req, res) => {
 try {
@@ -17,7 +17,7 @@ try {
   }
 });
 
-  // find one category by its `id` value
+  // find one category by its `id` value  🧁🧁✨✨🌻🌻
   // be sure to include its associated Products
 router.get('/:id', async (req, res) => {
   try {
@@ -39,14 +39,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// create a new category  🧁🧁✨✨🌻🌻
 router.post('/', (req, res) => {
-  // create a new category
+
 });
 
+// update a category by its `id` value  🧁🧁✨✨🌻🌻
 router.put('/:id', (req, res) => {
-  // update a category by its `id` value
+
 });
 
+// delete category  🧁🧁✨✨🌻🌻
 router.delete('/:id', async (req, res) => {
   try {
     // get product and destroy by id
@@ -58,7 +61,7 @@ router.delete('/:id', async (req, res) => {
       },
     })
     if (!categoryData) {
-      res.status(404).json({message: "NO CAT WITH THIS ID!!!"} )
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"})
     return;
     }
     res.status(200).json(categoryData);
