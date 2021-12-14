@@ -41,12 +41,41 @@ router.get('/:id', async (req, res) => {
 
 // create a new category  🧁🧁✨✨🌻🌻
 router.post('/', (req, res) => {
-
+  try {
+    const categoryData = await Category.create({
+      category_name: req.body.category_name,
+    });
+    if (!categoryData) {
+      res.status(404).json({ message: "NAME THIS TAG PLZ ⚡" });
+      return;
+    }
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 // update a category by its `id` value  🧁🧁✨✨🌻🌻
 router.put('/:id', (req, res) => {
-
+  try {
+    const categoryData = await Category.update(
+      {
+        category_name: req.body.category_name,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (!categoryData[0]) {
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      return;
+    }
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json;
+  }
 });
 
 // delete category  🧁🧁✨✨🌻🌻
