@@ -9,11 +9,16 @@ const { findByPk } = require('../../models/Product');
   // be sure to include its associated Products
 router.get('/', async (req, res) => {
 try {
-  const categoryData = await Category.findAll()
+  const categoryData = await Category.findAll({
+    include: {
+      model: Product,
+      attributes: ["product_name"],
+    }
+  });
     res.status(200).json(categoryData);
     // console.log("Passing categoryData")
   } catch (err) {
-  res.status(500).json(err)
+  res.status(500).json(err);
   }
 });
 
@@ -32,9 +37,9 @@ router.get('/:id', async (req, res) => {
       return;
     }
     // otherwise, returns data
-    res.status(200).json(categoryData)
+    res.status(200).json(categoryData);
   } catch (err) {
-  res.status(500).json(err)
+  res.status(500).json(err);
   // display error for server
   }
 });
