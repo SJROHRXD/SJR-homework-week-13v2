@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new tag  🧁🧁✨✨🌻🌻
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const tagData = await Tag.create({
       tag_name: req.body.tag_name,
@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
 });
 
 // update tag  🧁🧁✨✨🌻🌻
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const tagData = await Tag.update(
       {
