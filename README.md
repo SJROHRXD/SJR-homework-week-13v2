@@ -9,8 +9,8 @@ Original Repo:
 
 
 ## Video Demo 🌷
-
-[SJROHRXD]() - still needed*
+[SJROHRXD - part 1](https://youtu.be/QsPZtcYVtVg)
+[SJROHRXD - part 2](https://youtu.be/LUNnAM2eqN8)
 
             A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
 
