@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
       category_name: req.body.category_name,
     });
     if (!categoryData) {
-      res.status(404).json({ message: "NAME THIS TAG PLZ ⚡" });
+      res.status(404).json({ message: "NAME THIS CATEGORY PLZ ⚡" });
       return;
     }
     res.status(200).json(categoryData);
