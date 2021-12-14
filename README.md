@@ -2,6 +2,9 @@
 
 ## Repository 🌼
 
+[SJR-homework-week-13v2](https://github.com/SJROHRXD/SJR-homework-week-13v2)
+
+Original Repo:
 [SJR-homework-week-13](https://github.com/SJROHRXD/SJR-homework-week-13)
 
 
