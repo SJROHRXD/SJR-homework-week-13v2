@@ -74,7 +74,7 @@ router.put('/:id', (req, res) => {
       }
     );
     if (!categoryData[0]) {
-      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤" });
       return;
     }
     res.status(200).json(categoryData);
@@ -95,7 +95,7 @@ router.delete('/:id', async (req, res) => {
       },
     })
     if (!categoryData) {
-      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"})
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤" })
     return;
     }
     res.status(200).json(categoryData);

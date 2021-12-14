@@ -33,14 +33,15 @@ router.get('/:id', async (req, res) => {
 
 // create new product 🧁🧁✨✨🌻🌻
 router.post('/', (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
+    /* req.body should look like this...
+      {
+        product_name: "A Product Name",
+        price: 200.00,
+        stock: 3,
+        tagIds: [1, 2, 3, 4]
+      }
+    */ 
+    // thank you Zakk Fast for that tip
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -53,7 +54,7 @@ router.post('/', (req, res) => {
         });
         return ProductTag.bulkCreate(productTagIdArr);
       }
-      // if no product tags, just respond
+      // if no product tags, respond with error
       res.status(200).json(product);
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
@@ -86,7 +87,7 @@ router.put('/:id', (req, res) => {
             tag_id,
           };
         });
-      // figure out which ones to remove
+      // figure out which Tags to remove
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
@@ -116,7 +117,7 @@ router.delete('/:id', async (req, res) => {
       },
     })
     if (!productData) {
-      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤"});
+      res.status(404).json({message: "NO DATA FOR THIS ID 🧁✨🐱‍👤" });
     return;
     }
     res.status(200).json(productData);
